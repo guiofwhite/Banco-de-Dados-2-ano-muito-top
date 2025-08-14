@@ -1,8 +1,8 @@
-CREATE DATABASE escola;
+ CREATE DATABASE escola;
  USE escola;
  
  CREATE TABLE professor (
-    id_professor INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	id_professor INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome VARCHAR (100) NOT NULL,
     especialidade VARCHAR (100),
     salario DECIMAL (10,2),
@@ -11,7 +11,7 @@ CREATE DATABASE escola;
  
  
  CREATE TABLE disciplina(
-    id_disciplina INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	id_disciplina INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome VARCHAR (100) NOT NULL,
     id_professor INT,
     carga_horaria INT,
@@ -20,7 +20,7 @@ CREATE DATABASE escola;
  
  
  CREATE TABLE aluno (
-    id_aluno INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	id_aluno INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome VARCHAR (100) NOT NULL,
     sexo CHAR(1),
     data_nascimento DATE,
@@ -31,7 +31,7 @@ CREATE DATABASE escola;
  
  
  CREATE TABLE curso (
-    id_curso INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	id_curso INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome VARCHAR (100) NOT NULL,
     carga_horaria INT,
     modalidade VARCHAR (50)
@@ -39,7 +39,7 @@ CREATE DATABASE escola;
  
  
  CREATE TABLE matricula (
-    id_matricula INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	id_matricula INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     id_aluno INT,
     id_curso INT,
     data_matricula DATE,
@@ -48,8 +48,8 @@ CREATE DATABASE escola;
  );
  
  CREATE TABLE login (
-    id_login INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    id_aluno INT,
+	id_login INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	id_aluno INT,
     data_hora DATETIME,
     ip VARCHAR (40),
     sucesso BOOLEAN,
@@ -57,3 +57,17 @@ CREATE DATABASE escola;
  );
  
  SHOW TABLES;
+ 
+ 
+ 
+ -- Insert dados professor
+	INSERT INTO professor (id_professor, nome, especialidade, salario, uf) VALUES
+    (1,'João da Silva', 'Banco de Dados', 2500.00, 'PR');
+
+-- Insert disciplinas
+	INSERT INTO disciplina (nome, id_professor, carga_horaria) VALUES
+    ('Banco de Dados Iniciamente', 1, 60);
+    
+-- Insert alunos
+	INSERT INTO aluno (nome, sexo, data_nascimento, nota_final, ativo) VALUES
+    ('Marinho da Silva', 'M', '2009-09-05', 8.5, TRUE);
